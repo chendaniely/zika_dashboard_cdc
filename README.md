@@ -31,18 +31,18 @@ Command line
 
 ### Using R Console
 
-Navigate into the app folder
+Navigate into the project folder
 
 ``` r
-shiny::runApp()
+shiny::runApp('zika_cdc')
 ```
 
 ### Using Shell
 
-Navigate into the app folder
+Navigate into the project folder
 
 ``` bash
-Rscript -e 'shiny::runApp()'
+Rscript -e 'shiny::runApp('zika_cdc')'
 ```
 
 Open a browser and navigate to the 'listening' link (e.g., `http://127.0.0.1:6593`)
