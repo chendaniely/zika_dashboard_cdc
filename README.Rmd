@@ -1,4 +1,10 @@
-# README.md
+---
+title: "README.md"
+output: 
+  html_document: 
+    keep_md: yes
+    toc: yes
+---
 
 # Shiny Dashboard for CDC Zika data
 Shiny Dashboard for [CDC Zika data](https://github.com/cdcepi/zika)
