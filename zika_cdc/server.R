@@ -8,23 +8,24 @@ server <- function(input, output) {
     })
 
     output$basic_stat_nrow <- renderInfoBox({
-        infoBox(
-            "# Rows", nrow(combined_df), icon = icon("list"),
+        valueBox(
+            nrow(combined_df),
+            "Rows of data", icon = icon("list"),
             color = "aqua"
         )
     })
 
     output$basic_stat_ndays <- renderInfoBox({
-        infoBox(
-            "# Days", length(unique(combined_df$report_date)),
-            icon = icon("list"),
+        valueBox(
+            length(unique(combined_df$report_date)),
+            "Days of data", ,
+            icon = icon("calendar"),
             color = "blue"
         )
     })
 
     output$basic_stat_ncountry <- renderInfoBox({
-        infoBox(
-            "# Countries",
+        valueBox(
             combined_df %>%
                 tidyr::separate(col = location,
                                 into = c('country', 'location2', 'location3'),
@@ -32,8 +33,9 @@ server <- function(input, output) {
                                 fill = 'right') %>%
                 dplyr::select(country) %>%
                 .$country %>%
-                dplyr::n_distinct(),
-            icon = icon("list"),
+                dplyr::n_distinct() - 1,
+            "Countries",
+            icon = icon("globe"),
             color = "light-blue"
         )
     })
