@@ -1,0 +1,101 @@
+---
+title: "brazil"
+author: "Daniel Chen"
+date: "March 23, 2016"
+output: 
+  html_document: 
+    number_sections: yes
+    toc: yes
+---
+
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+
+setwd('~/git/vbi/zika_dashboard_cdc/')
+
+files <- list.files(path = '../zika/',
+                    pattern = '[0-9]{4}-[0-9]{2}-[0-9]{2}.csv$',
+                    recursive = TRUE,
+                    full.names = TRUE)
+
+tables <- lapply(files, readr::read_csv)
+
+combined_df <- do.call(rbind , tables)
+
+rm(files, tables)
+```
+
+# Basic stats
+
+## Number of Rows of data
+```{r}
+nrow(combined_df)
+```
+
+
+## Number of Days of Data
+
+```{r}
+length(unique(combined_df$report_date))
+```
+
+## Number of Countries
+```{r}
+parsed_location <- combined_df %>%
+    tidyr::separate(col = location,
+                    into = c('country', 'location2', 'location3'),
+                    sep = '-',
+                    fill = 'right')
+unique(parsed_location$country)
+```
+
+```{r}
+combined_df %>%
+    tidyr::separate(col = location,
+                    into = c('country', 'location2', 'location3'),
+                    sep = '-',
+                    fill = 'right') %>%
+    dplyr::select(country) %>%
+    .$country %>%
+    dplyr::n_distinct()
+```
+
+## Number of case data
+```{r}
+country_cases <- combined_df %>%
+    tidyr::separate(col = location,
+                    into = c('country', 'location2', 'location3'),
+                    sep = '-',
+                    fill = 'right') %>%
+    dplyr::filter(value > 0) %>%
+    dplyr::count(country)
+country_cases$country[is.na(country_cases$country)] <- "NA"
+
+ggplot(data = country_cases,
+       mapping = aes(x = str_replace_all(country, '_', ' '), y = n, label = n)) + 
+    geom_bar(stat = "identity", na.rm = FALSE) +
+    geom_text(aes(y = n + 0.05), position = position_dodge(0.9), vjust = 0, size = 5) +
+    scale_y_continuous(trans = "log10") +
+    labs(x = "Country",
+         y = 'Number of case data > 0 (log 10)') +
+    theme_bw() +
+    theme(axis.text.x  = element_text(angle = 45, hjust = 1))
+```
+
+# Cross tabs
+
+## country by 
+
+```{r}
+t <- parsed_location %>%
+    dplyr::group_by(country, data_field) %>%
+    filter(value > 0) %>%
+    summarise(
+    observations = sum(value, na.rm = TRUE)
+  )
+```
+
