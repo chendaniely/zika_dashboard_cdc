@@ -11,7 +11,7 @@ Shiny Dashboard for [CDC Zika data](https://github.com/cdcepi/zika)
 
 # Setup
 
-`install.packages(c('shiny', 'shinydashboard'))`
+`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
 
 # Running/Vieweing the App
 
