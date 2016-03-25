@@ -11,6 +11,9 @@ Shiny Dashboard for [CDC Zika data](https://github.com/cdcepi/zika)
 
 # Setup
 
+## R
+`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
+
 ## Data
 Currently this repository depends on the [CDC Zika repository](https://github.com/cdcepi/zika).
 You need to have a `zika` folder with all the contents of the CDC Zika repository as a sibling directory as this repository.
@@ -38,9 +41,6 @@ git clone https://github.com/cdcepi/zika.git
 If you do not know your way around git, simply go to the [CDC Zika repository](https://github.com/cdcepi/zika) and [this repository](https://github.com/chendaniely/zika_dashboard_cdc),
 
 click the `Download Zip` button for each of the pages, and extract them into separate folders with the names mentioned above.
-
-## R
-`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
 
 # Running/Vieweing the App
 

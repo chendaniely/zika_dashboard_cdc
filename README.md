@@ -3,10 +3,10 @@ Shiny Dashboard for CDC Zika data
 
 -   [Overview](#overview)
 -   [Setup](#setup)
+    -   [R](#r)
     -   [Data](#data)
         -   [Git](#git)
         -   [Manually download repositories](#manually-download-repositories)
-    -   [R](#r)
 -   [Running/Vieweing the App](#runningvieweing-the-app)
     -   [Within Rstudio](#within-rstudio)
     -   [Command line](#command-line)
@@ -21,6 +21,11 @@ Shiny Dashboard for [CDC Zika data](https://github.com/cdcepi/zika)
 
 Setup
 =====
+
+R
+-
+
+`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
 
 Data
 ----
@@ -49,11 +54,6 @@ git clone https://github.com/cdcepi/zika.git
 If you do not know your way around git, simply go to the [CDC Zika repository](https://github.com/cdcepi/zika) and [this repository](https://github.com/chendaniely/zika_dashboard_cdc),
 
 click the `Download Zip` button for each of the pages, and extract them into separate folders with the names mentioned above.
-
-R
--
-
-`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
 
 Running/Vieweing the App
 ========================
