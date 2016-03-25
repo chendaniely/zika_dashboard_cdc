@@ -87,4 +87,4 @@ Open a browser and navigate to the 'listening' link (e.g., `http://127.0.0.1:659
 Website
 -------
 
-Still finding a place to host...
+The app is currently deployed here: <https://chendaniely.shinyapps.io/zika_cdc_dashboard/>
