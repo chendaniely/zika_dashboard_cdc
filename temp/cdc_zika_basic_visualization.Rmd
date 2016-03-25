@@ -92,10 +92,11 @@ ggplot(data = country_cases,
 
 ```{r}
 t <- parsed_location %>%
+    dplyr::mutate(value = as.numeric(value),
+                  country = ifelse(is.na(country), 'Brazil', country)) %>%
     dplyr::group_by(country, data_field) %>%
-    filter(value > 0) %>%
-    summarise(
-    observations = sum(value, na.rm = TRUE)
-  )
+    dplyr::filter(value > 0) %>%
+    dplyr::summarise(
+    observations = sum(value, na.rm = TRUE)) %>%
+    tidyr::spread(country, observations)
 ```
-
