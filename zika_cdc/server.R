@@ -61,6 +61,34 @@ server <- function(input, output) {
             theme(axis.text.x  = element_text(angle = 45, hjust = 1))
     })
 
+    output$colombia_cum_cases <- renderPlot({
+        ggplot(data = cumulative_country, aes(x = as.Date(report_date), y = cum_sum)) +
+            geom_line() +
+            theme_bw() +
+            ylim(0, 50000)
+    })
+
+    output$colombia_location2_cum_cases <- renderPlot({
+        ggplot(data = cumulative_country_2, aes(x = as.Date(report_date), y = cum_sum)) +
+            theme_bw() +
+            geom_line(aes(color=location2)) +
+            ylim(0, 10000)
+    })
+
+    output$colombia_location3_cum_cases <- renderPlot({
+        ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
+            theme_bw() +
+            geom_line(aes(color=location3)) +
+            theme(legend.position="none")
+    })
+
+    output$colombia_location3_cum_cases_facet <- renderPlot({
+        ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
+            theme_bw() +
+            geom_line(aes(color=location3)) +
+            theme(legend.position="none") +
+            facet_wrap(~location2, scales='free')
+    })
 
     output$download_parsed_location <- downloadHandler(
         filename = function() {

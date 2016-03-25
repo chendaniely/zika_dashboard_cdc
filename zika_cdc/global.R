@@ -30,3 +30,24 @@ country_cases <- combined_df %>%
                     fill = 'right') %>%
     dplyr::filter(value > 0) %>%
     dplyr::count(country)
+
+colombia_data <- parsed_location %>%
+    dplyr::filter(country == 'Colombia')
+
+cumulative_country <-
+    colombia_data %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country) %>%
+    summarize(cum_sum = sum(value))
+
+cumulative_country_2 <-
+    colombia_data %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country, location2) %>%
+    summarize(cum_sum = sum(value))
+
+cumulative_country_3 <-
+    colombia_data %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country, location2, location3) %>%
+    summarize(cum_sum = sum(value))

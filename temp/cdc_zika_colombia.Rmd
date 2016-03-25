@@ -1,0 +1,104 @@
+---
+title: "cdc_zika_colombia"
+author: "Daniel Chen"
+date: "March 24, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+
+setwd('~/git/vbi/zika_dashboard_cdc/')
+
+files <- list.files(path = '../zika/',
+                    pattern = '[0-9]{4}-[0-9]{2}-[0-9]{2}.csv$',
+                    recursive = TRUE,
+                    full.names = TRUE)
+
+tables <- lapply(files, readr::read_csv)
+
+combined_df <- do.call(rbind , tables)
+
+rm(files, tables)
+
+parsed_location <- combined_df %>%
+    tidyr::separate(col = location,
+                    into = c('country', 'location2', 'location3'),
+                    sep = '-',
+                    fill = 'right')
+```
+
+```{r}
+colombia <- parsed_location %>%
+    dplyr::filter(country == 'Colombia')
+```
+
+```{r}
+colombia$data_field %>% unique()
+
+colombia$location2 %>% unique()
+
+colombia$location3 %>% unique()
+```
+
+```{r}
+cumulative_country <-
+    colombia %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country) %>%
+    summarize(cum_sum = sum(value))
+```
+
+```{r}
+ggplot(data = cumulative_country, aes(x = as.Date(report_date), y = cum_sum)) +
+    geom_line() +
+    ylim(0, 50000)
+```
+
+
+```{r}
+cumulative_country_2 <-
+    colombia %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country, location2) %>%
+    summarize(cum_sum = sum(value))
+```
+
+```{r}
+ggplot(data = cumulative_country_2, aes(x = as.Date(report_date), y = cum_sum)) +
+    geom_line(aes(color=location2)) +
+    ylim(0, 10000)
+```
+```
+
+
+```{r}
+cumulative_country_3 <-
+    colombia %>%
+    dplyr::mutate(value = as.numeric(value)) %>%
+    dplyr::group_by(report_date, country, location2, location3) %>%
+    summarize(cum_sum = sum(value))
+```
+
+```{r}
+ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
+    geom_line(aes(color=location3)) +
+    theme(legend.position="none")
+```
+
+```{r}
+ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
+    geom_line(aes(color=location3)) +
+    theme(legend.position="none") +
+    facet_wrap(~location2, scales='free')
+```
+
+
