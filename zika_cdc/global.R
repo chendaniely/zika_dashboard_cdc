@@ -5,7 +5,13 @@ library(ggplot2)
 library(stringr)
 library(DT)
 
-files <- list.files(path = '../../zika/',
+source('custom_functions/get_cdc_data.R')
+
+cdc_data_commit <- '05e6c978330da18ee5902cceabeab742f54294f2'
+
+get_cdc_data(cdc_data_commit)
+
+files <- list.files(path = sprintf('data/zika-%s', cdc_data_commit),
                     pattern = '[0-9]{4}-[0-9]{2}-[0-9]{2}.csv$',
                     recursive = TRUE,
                     full.names = TRUE)
