@@ -15,6 +15,8 @@ source('custom_functions/github_dropdown_menu.R')
 
 
 dashboardPage(
+    tags$head(includeScript("google_analytics.js")),
+
     dashboard_header(),
     dashboard_sidebar(),
     dashboard_body()
