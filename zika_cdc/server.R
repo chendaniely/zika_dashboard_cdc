@@ -74,6 +74,8 @@ server <- function(input, output) {
             geom_line() +
             theme_bw() +
             ylim(0, 50000) +
+            xlab("Date") +
+            ylab("Cumulative Cases (confirmed/suspected)") +
             theme(axis.text.x  = element_text(angle=45, hjust=1))
     })
 
@@ -82,6 +84,8 @@ server <- function(input, output) {
             theme_bw() +
             geom_line(aes(color=location2)) +
             ylim(0, 10000) +
+            xlab("Date") +
+            ylab("Cumulative Cases (confirmed/suspected)") +
             theme(axis.text.x  = element_text(angle=45, hjust=1))
     })
 
@@ -89,6 +93,8 @@ server <- function(input, output) {
         ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
             theme_bw() +
             geom_line(aes(color=location3)) +
+            xlab("Date") +
+            ylab("Cumulative Cases (confirmed/suspected)") +
             theme(legend.position="none",
                   axis.text.x  = element_text(angle=45, hjust=1))
     })
@@ -97,6 +103,8 @@ server <- function(input, output) {
         ggplot(data = cumulative_country_3, aes(x = as.Date(report_date), y = cum_sum)) +
             theme_bw() +
             geom_line(aes(color=location3)) +
+            xlab("Date") +
+            ylab("Cumulative Cases (confirmed/suspected)") +
             theme(legend.position="none",
                   axis.text.x  = element_text(angle=45, hjust=1)) +
             facet_wrap(~location2, scales='free')
