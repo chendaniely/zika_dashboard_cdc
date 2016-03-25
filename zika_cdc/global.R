@@ -3,6 +3,7 @@ library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(stringr)
+library(DT)
 
 files <- list.files(path = '../../zika/',
                     pattern = '[0-9]{4}-[0-9]{2}-[0-9]{2}.csv$',
