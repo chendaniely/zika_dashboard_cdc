@@ -25,7 +25,7 @@ Setup
 R
 -
 
-`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr'))`
+`install.packages(c('shiny', 'shinydashboard', 'readr', 'tidyr', 'dplyr', 'ggplot2', 'stringr', 'DT'))`
 
 Data
 ----
