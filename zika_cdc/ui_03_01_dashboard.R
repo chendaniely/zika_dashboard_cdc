@@ -4,9 +4,10 @@ main_dashboard_page <- function(){
     tabItem(tabName = "dashboard",
 
             fluidRow(
-                valueBoxOutput("basic_stat_nrow"),
-                valueBoxOutput("basic_stat_ndays"),
-                valueBoxOutput("basic_stat_ncountry")
+                valueBoxOutput("basic_stat_nrow", width = 3),
+                valueBoxOutput("basic_stat_ndays", width = 3),
+                valueBoxOutput("basic_stat_ncountry", width = 3),
+                valueBoxOutput("data_version", width = 3)
             ),
 
             fluidRow(

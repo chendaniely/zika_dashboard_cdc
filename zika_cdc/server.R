@@ -40,6 +40,14 @@ server <- function(input, output) {
         )
     })
 
+    output$data_version <- renderInfoBox({
+        valueBox(
+            substr(cdc_data_commit, 0, 7),
+            "Data Version", icon = icon("github"),
+            color = "aqua"
+        )
+    })
+
     output$basic_stat_plot_ncases <- renderPlot({
         country_cases <- combined_df %>%
             tidyr::separate(col = location,

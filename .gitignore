@@ -1,5 +1,6 @@
 /README.html
 /temp/*.html
+/zika_cdc/data/*
 
 # History files
 .Rhistory
