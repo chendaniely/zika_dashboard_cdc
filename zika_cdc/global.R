@@ -20,6 +20,9 @@ source('ui_01_01_github_dropdown.R')
 source('custom_functions/my_notification_item.R')
 source('custom_functions/github_dropdown_menu.R')
 
+source('modules/country_level_analysis_colombia_ui.R')
+source('modules/country_level_analysis_colombia_server.R')
+
 cdc_data_commit <- '05e6c978330da18ee5902cceabeab742f54294f2'
 
 get_cdc_data(cdc_data_commit)
