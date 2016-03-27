@@ -4,6 +4,7 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(DT)
+library(shinydashboard)
 
 source('custom_functions/get_cdc_data.R')
 

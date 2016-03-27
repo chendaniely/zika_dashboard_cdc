@@ -1,3 +1,5 @@
+library(shinydashboard)
+
 server <- function(input, output) {
     set.seed(122)
     histdata <- rnorm(500)
@@ -48,7 +50,8 @@ server <- function(input, output) {
         )
     })
 
-    shiny::callModule(country_level_analysis_colombia, 'country_level_analysis_colombia')
+    shiny::callModule(country_level_analysis_colombia,
+                      'country_level_analysis_colombia')
 
     output$basic_stat_plot_ncases <- renderPlot({
         country_cases <- combined_df %>%
