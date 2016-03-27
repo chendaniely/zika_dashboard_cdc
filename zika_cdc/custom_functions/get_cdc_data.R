@@ -15,7 +15,8 @@ get_cdc_data <- function(cdc_github_commit_hash){
             unzip(downloaded_zip_path, exdir = 'data')
         }
     } else {
-        github_zip_url <- sprintf('https://github.com/cdcepi/zika/archive/%s.zip', cdc_data_commit)
+        github_zip_url <- sprintf('https://github.com/cdcepi/zika/archive/%s.zip',
+                                  cdc_data_commit)
         download.file(url = github_zip_url,
                       destfile = downloaded_zip_path)
         unzip(downloaded_zip_path, exdir = 'data')
