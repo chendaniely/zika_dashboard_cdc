@@ -48,6 +48,8 @@ server <- function(input, output) {
         )
     })
 
+    shiny::callModule(country_level_analysis_colombia, 'country_level_analysis_colombia')
+
     output$basic_stat_plot_ncases <- renderPlot({
         country_cases <- combined_df %>%
             tidyr::separate(col = location,
