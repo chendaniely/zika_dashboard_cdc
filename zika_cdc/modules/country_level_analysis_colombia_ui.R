@@ -1,11 +1,11 @@
 library(shiny)
 
 country_level_analysis_colombia_UI <- function(
-	id, label = "country_level_analysis_colombia"){
-	# create a namespace function usin gthe provided ID
-	ns <- shiny::NS(id)
+    id, label = "country_level_analysis_colombia"){
+    # create a namespace function usin gthe provided ID
+    ns <- shiny::NS(id)
 
-	tabItem(tabName = "colombia",
+    tabItem(tabName = "colombia",
             fluidRow(
                 box(width = 12,
                     h1("Colombia")
