@@ -13,6 +13,7 @@ Shiny Dashboard for CDC Zika data
         -   [Using R Console](#using-r-console)
         -   [Using Shell](#using-shell)
     -   [Website](#website)
+-   [About](#about)
 
 Overview
 ========
@@ -88,3 +89,10 @@ Website
 -------
 
 The app is currently deployed here: <https://chendaniely.shinyapps.io/zika_cdc_dashboard/>
+
+About
+=====
+
+[I](chendaniely.github.io) (Daniel Chen @chendaniely) am a graduate student at [Virginia Tech](https://www.vt.edu/index.html) in [Genetics, Bioinformatics, and Computational Biology](http://gbcb.vbi.vt.edu/). I work in the [Social and Decison Analytics Laboratory](https://www.bi.vt.edu/sdal) and sit with the Public Health and fellow computational epidemiologists in the [Network Dynamics and Simulation Science Laboratory](https://www.bi.vt.edu/ndssl). Both labs are part of the [Biocomplexity Institute of Virginia Tech](https://www.bi.vt.edu/).
+
+This project started as part of a larger project with Bryan Lewis (@bryanleroylewis), James Schlitt (@jschlitt84), and Pyrros (Alex) Telionis.
