@@ -4,6 +4,7 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(DT)
+library(shiny)
 library(shinydashboard)
 
 source('custom_functions/get_cdc_data.R')
@@ -25,7 +26,7 @@ source('modules/country_level_analysis_colombia_ui.R')
 source('modules/country_level_analysis_colombia_server.R')
 
 
-cdc_data_commit <- '05e6c978330da18ee5902cceabeab742f54294f2'
+cdc_data_commit <- '8aabc61344ec9a2658beb9c239adb85796d51b39'
 
 get_cdc_data(cdc_data_commit)
 
@@ -47,11 +48,7 @@ parsed_location <- combined_df %>%
                     sep = '-',
                     fill = 'right')
 
-country_cases <- combined_df %>%
-    tidyr::separate(col = location,
-                    into = c('country', 'location2', 'location3'),
-                    sep = '-',
-                    fill = 'right') %>%
+country_cases <- parsed_location %>%
     dplyr::filter(value > 0) %>%
     dplyr::count(country)
 

@@ -1,12 +1,10 @@
-library(shiny)
-
 country_level_analysis_colombia <- function(input, output, session){
 	output$colombia_cum_cases <- renderPlot({
         ggplot(data = cumulative_country,
                aes(x = as.Date(report_date), y = cum_sum)) +
             geom_line() +
             theme_bw() +
-            ylim(0, 50000) +
+            #ylim(0, 50000) +
             xlab("Date") +
             ylab("Cumulative Cases (confirmed/suspected)") +
             theme(axis.text.x  = element_text(angle=45, hjust=1))
@@ -17,7 +15,7 @@ country_level_analysis_colombia <- function(input, output, session){
                aes(x = as.Date(report_date), y = cum_sum)) +
             theme_bw() +
             geom_line(aes(color=location2)) +
-            ylim(0, 10000) +
+            # ylim(0, 10000) +
             xlab("Date") +
             ylab("Cumulative Cases (confirmed/suspected)") +
             theme(axis.text.x  = element_text(angle=45, hjust=1))

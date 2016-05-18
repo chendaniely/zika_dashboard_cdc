@@ -1,5 +1,3 @@
-library(shinydashboard)
-
 dashboard_body <- function(){
     dashboardBody(
         tags$head(includeScript("google_analytics.js")),

@@ -1,5 +1,3 @@
-library(shinydashboard)
-
 github_dropdown <- function(){
     github_dropdown_menu(
         type = "messages",

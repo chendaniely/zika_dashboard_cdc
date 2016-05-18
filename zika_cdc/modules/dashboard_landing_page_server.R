@@ -11,7 +11,19 @@ dashboard_landing_page <- function(input, output, session){
     output$basic_stat_ndays <- renderInfoBox({
         valueBox(
             length(unique(combined_df$report_date)),
-            "Days of data", ,
+            "Days of data",
+            icon = icon("calendar"),
+            color = "blue"
+        )
+    })
+
+    output$basic_stat_date_range <- renderInfoBox({
+        all_dates <- unique(combined_df$report_date)
+        earliest <- min(all_dates)
+        latest <- max(all_dates)
+        valueBox(
+            h4(sprintf('%s to %s', earliest, latest)),
+            "Date Range",
             icon = icon("calendar"),
             color = "blue"
         )

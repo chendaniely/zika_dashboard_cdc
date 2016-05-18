@@ -1,5 +1,3 @@
-library(shinydashboard)
-
 github_dropdown_menu <- function(...,
                                  type = c("messages", "notifications", "tasks"),
                                  badgeStatus = "primary",
