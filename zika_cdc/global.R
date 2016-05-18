@@ -30,7 +30,7 @@ source('modules/country_level_analysis_colombia_ui.R')
 source('modules/country_level_analysis_colombia_server.R')
 
 
-cdc_data_commit <- '05e6c978330da18ee5902cceabeab742f54294f2'
+cdc_data_commit <- '03022e42828e69ce19b448d40fa806545368b348'
 
 get_cdc_data(cdc_data_commit)
 
