@@ -1,6 +1,6 @@
 dashboard_header <- function(){
     dashboardHeader(
-        title = "Basic dashboard",
+        title = "CDC Zika Data",
         github_dropdown()
     )
 }
