@@ -7,6 +7,10 @@ library(DT)
 library(shiny)
 library(shinydashboard)
 
+if(interactive()){
+    setwd('zika_cdc/')
+}
+
 source('custom_functions/get_cdc_data.R')
 
 source('ui_01_dashboardHeader.R')
