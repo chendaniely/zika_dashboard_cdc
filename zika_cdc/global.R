@@ -48,11 +48,7 @@ parsed_location <- combined_df %>%
                     sep = '-',
                     fill = 'right')
 
-country_cases <- combined_df %>%
-    tidyr::separate(col = location,
-                    into = c('country', 'location2', 'location3'),
-                    sep = '-',
-                    fill = 'right') %>%
+country_cases <- parsed_location %>%
     dplyr::filter(value > 0) %>%
     dplyr::count(country)
 
