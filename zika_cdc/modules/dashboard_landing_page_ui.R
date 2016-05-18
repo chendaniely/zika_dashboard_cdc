@@ -8,8 +8,8 @@ dashboard_landing_page_UI <- function(
             fluidRow(
                 valueBoxOutput(ns("basic_stat_nrow"), width = 3),
                 valueBoxOutput(ns("basic_stat_ndays"), width = 3),
-                valueBoxOutput(ns("basic_stat_ncountry"), width = 3),
-                valueBoxOutput(ns("data_version"), width = 3)
+                valueBoxOutput(ns("basic_stat_date_range"), width = 3),
+                valueBoxOutput(ns("basic_stat_ncountry"), width = 3)
             ),
 
             fluidRow(
@@ -19,6 +19,10 @@ dashboard_landing_page_UI <- function(
                     plotOutput(ns('basic_stat_plot_ncases')),
                     "Number of non-missing, and cases greater than 0 per country"
                 )
+            ),
+
+            fluidRow(
+                valueBoxOutput(ns("data_version"), width = 3)
             )
     )
 }
