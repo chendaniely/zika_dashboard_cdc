@@ -1,5 +1,3 @@
-library(shinydashboard)
-
 dashboard_sidebar <- function(){
     dashboardSidebar(
         sidebarMenu(

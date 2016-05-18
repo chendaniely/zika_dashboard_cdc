@@ -1,5 +1,3 @@
-library(shinydashboard)
-
 my_notification_item <- function(text,
                                  icon = shiny::icon("warning"),
                                  status = "success",
