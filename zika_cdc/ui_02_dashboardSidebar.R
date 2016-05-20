@@ -5,6 +5,7 @@ dashboard_sidebar <- function(){
             menuItem("Country Level Analysis", icon = icon('globe'),
                      menuSubItem("Colombia", tabName = "colombia")
             ),
+            menuItem("Country Level Analysis 2", tabName = "general_country", icon = icon('globe')),
             menuItem("View Data", tabName = "raw_data", icon = icon("fa fa-download"))
         )
     )

@@ -5,6 +5,15 @@ dashboard_body <- function(){
             #main_dashboard_page(),
             dashboard_landing_page_UI('dashboard_landing_page'),
             country_level_analysis_colombia_UI('country_level_analysis_colombia'),
+
+            tabItem(tabName = "general_country",
+                    fluidRow(
+                        box(width = 12,
+                            h1("asdf")
+                        )
+                    )
+            ),
+
             raw_data()
         )
     )
