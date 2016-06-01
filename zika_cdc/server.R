@@ -67,7 +67,7 @@ server <- function(input, output) {
 
     output$download_parsed_location <- downloadHandler(
         filename = function() {
-            paste('cdc_parsed_location', '.csv', sep='')
+            paste('cdc_parsed_location', '.csv', sep = '')
         },
         content = function(file) {
             write.csv(parsed_location, file)
