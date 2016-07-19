@@ -19,8 +19,8 @@ dashboard_landing_page <- function(input, output, session){
 
     output$basic_stat_date_range <- renderInfoBox({
         all_dates <- unique(combined_df$report_date)
-        earliest <- min(all_dates)
-        latest <- max(all_dates)
+        earliest <- min(all_dates, na.rm = TRUE)
+        latest <- max(all_dates, na.rm = TRUE)
         valueBox(
             h4(sprintf('%s to %s', earliest, latest)),
             "Date Range",
