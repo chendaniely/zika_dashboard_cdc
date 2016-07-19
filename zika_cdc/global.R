@@ -26,7 +26,7 @@ source('modules/country_level_analysis_colombia_ui.R')
 source('modules/country_level_analysis_colombia_server.R')
 
 
-cdc_data_commit <- '8aabc61344ec9a2658beb9c239adb85796d51b39'
+cdc_data_commit <- '216404b261cc8e3f7474071e2182156fd14213f1'
 
 get_cdc_data(cdc_data_commit)
 
