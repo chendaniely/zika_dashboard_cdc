@@ -8,6 +8,7 @@ library(shiny)
 library(shinydashboard)
 
 source('custom_functions/get_cdc_data.R')
+source('custom_functions/reduce_cdc_bundle.R')
 
 source('ui_01_dashboardHeader.R')
 source('ui_02_dashboardSidebar.R')
@@ -29,6 +30,7 @@ source('modules/country_level_analysis_colombia_server.R')
 cdc_data_commit <- 'b4eda3a666eee85abfb3e8bacfef5cbaa0c94c97'
 
 get_cdc_data(cdc_data_commit)
+reduce_cdc_bundle(cdc_data_commit)
 
 files <- list.files(path = sprintf('data/zika-%s', cdc_data_commit),
                     pattern = '[0-9]{4}-[0-9]{2}-[0-9]{2}.csv$',
